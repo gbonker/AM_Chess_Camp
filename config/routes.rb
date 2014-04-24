@@ -1,4 +1,8 @@
 ChessCamp::Application.routes.draw do
+  get "students/show"
+  get "students/new"
+  get "students/index"
+  get "students/edit"
   get "families/index"
   get "families/show"
   get "families/new"
