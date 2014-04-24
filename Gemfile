@@ -56,12 +56,13 @@ gem 'bcrypt-ruby', '3.1.5'
 # Use CanCanCan for authorization and authentication
 gem 'cancancan'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
   gem 'thin'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'meta_request'
   gem 'wirble'
   gem 'hirb'

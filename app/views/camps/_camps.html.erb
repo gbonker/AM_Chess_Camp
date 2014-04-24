@@ -1,5 +1,10 @@
 <h3><%= status %> Camps</h3>
 
+<% if (status == "Upcoming") %>
+  <%= link_to "Add a New Camp", new_camp_path, class: "button tiny radius" %>
+<% end %>
+
+<br></br>
 <table class="table">
   <tr>
     <th width="260">Name</th>

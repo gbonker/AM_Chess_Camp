@@ -1,5 +1,5 @@
-class LocationController < ApplicationController
-  before_action :set_instructor, only: [:show, :edit, :update, :destroy]
+class LocationsController < ApplicationController
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   def index
     @active_locations = Location.active.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -7,6 +7,7 @@ class LocationController < ApplicationController
   end
 
   def show
+  	@camps = @location.camps.chronological.to_a
   end
 
   def new
