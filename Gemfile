@@ -59,6 +59,8 @@ gem 'cancancan'
 gem 'better_errors'
 gem 'binding_of_caller'
 
+gem 'jquery-ui-rails'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
