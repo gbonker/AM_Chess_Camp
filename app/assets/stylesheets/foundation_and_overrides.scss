@@ -1253,8 +1253,10 @@ a img {
 }
 
 select.date { width: 95px; }
-#camp_time_slot, #camp_max_students, #camp_cost, #camp_curriculum_id, #camp_location_id { width: 290px; }
-#instructor_bio { height: 7rem; }
-#curriculum_description { height: 7rem; }
+#camp_curriculum_id, #camp_location_id, #curriculum_name, #instructor_first_name, #instructor_last_name, #location_name, #location_street_1, #location_street_2, #student_first_name, #student_last_name, #family_family_name, #family_parent_first_name { width: 300px; }
+#instructor_bio, #curriculum_description { height: 7rem; }
+#instructor_phone, #instructor_email, #camp_time_slot, #location_city, #family_email, #family_phone { width: 200px; }
+#location_state, #camp_start_date, #camp_end_date, #student_date_of_birth, #student_family_id { width: 175px; }
+#curriculum_min_rating, #curriculum_max_rating, #camp_max_students, #camp_cost, #location_zip, #location_max_capacity, #student_rating { width: 125px; }
 
 @import 'foundation';

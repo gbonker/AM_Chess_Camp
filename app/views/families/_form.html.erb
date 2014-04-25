@@ -2,8 +2,8 @@
    
    <h3><%= controller.action_name.capitalize %> Family</h3>
     
-    <%= f.input :family_name %>
-    <%= f.input :parent_first_name %>
+    <%= f.input :family_name, label: "Family Name" %>
+    <%= f.input :parent_first_name, label: "Parent's First Name" %>
     <%= f.input :email %>
     <%= f.input :phone %>
     <%= f.input :active %>
