@@ -1,2 +1,16 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<div class="row">
+  <div class="small-7 columns">
+    <!-- MAIN CONTENT GOES HERE -->
+    <%= render :partial => "active_students" %>
+    <br />
+  </div>
+
+  <div class="small-1 columns">
+    &nbsp;
+  </div>
+
+  <div class="small-4 columns">
+    <!-- SIDEBAR CONTENT GOES HERE -->
+    <%= render partial: 'inactive_students' %>
+  </div>
+</div>

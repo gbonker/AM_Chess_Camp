@@ -17,3 +17,6 @@
 
 $(function(){ $(document).foundation(); });
 
+$(function() {
+    $( "#datepicker" ).datepicker();
+});

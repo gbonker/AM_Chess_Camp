@@ -5,7 +5,9 @@
 
 <strong>Street Address:&nbsp;&nbsp;</strong><br /> 
   <%= @location.street_1 %><br />
-  <%= @location.street_2 %><br />
+  <% if @location.street_2.blank? == false %>
+  	<%= @location.street_2 %><br />
+  <% end %>
   <%= @location.city+", "+@location.state+" "+@location.zip %><br /><br />
 
 <strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
