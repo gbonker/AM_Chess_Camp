@@ -2,8 +2,8 @@
    
    <h3><%= controller.action_name.capitalize %> Registration</h3>
     
-    <%= f.input :student_id %>
-    <%= f.input :camp_id %>
+    <%= f.input :student_id, collection: Student.active.alphabetical.map{ |student| [student.proper_name, student.id] }, prompt: "Select Student..." %>
+    <%= f.input :camp_id, collection: Camp.active.alphabetical.map{ |camp| [camp.name, camp.id] }, prompt: "Select Camp..." %>
     <%= f.input :payment_status %>
     <%= f.input :points_earned %>
 

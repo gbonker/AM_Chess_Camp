@@ -7,6 +7,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
+  	@students = @family.students.alphabetical.to_a
   end
 
   def new

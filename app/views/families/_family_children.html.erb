@@ -1,0 +1,16 @@
+<% unless @students.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Students in This Family:</h5>
+    <ul class="side-nav">
+      <% @students.each do |student| %>
+        <li><%= link_to student.proper_name, student_path(student) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>No students belong to this family.</h5>
+  </div>
+<% end %>
