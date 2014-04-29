@@ -1,10 +1,10 @@
 <h3>Registration Details</h3><br />
 
 <strong>Student:&nbsp;&nbsp;</strong> 
-  <%= @registration.student %><br /><br />
+  <%= link_to @registration.student.proper_name, student_path(@registration.student) %><br /><br />
 
 <strong>Camp:&nbsp;&nbsp;</strong> 
-  <%= @registration.camp %><br /><br />
+  <%= link_to @registration.camp.name, camp_path(@registration.camp) %><br /><br />
 
 <strong>Payment Status:&nbsp;&nbsp;</strong> 
   <%= @registration.payment_status %><br /><br />
