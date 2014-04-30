@@ -2,7 +2,6 @@
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
     <h5>Student's Registrations:</h5>
-    <!-- <strong><%# link_to "Register this Student for a Camp", new_registration_path(student_id: @student.id) %></strong> -->
     <ul class="side-nav">
       <% @registrations.each do |registration| %>
         <li><%= link_to "#{registration.camp.start_date.strftime('%B %e, %Y')}: #{registration.camp.name} at #{registration.camp.location.name}", registration_path(registration) %></li>

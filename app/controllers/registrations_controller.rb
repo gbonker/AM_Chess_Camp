@@ -8,9 +8,7 @@ class RegistrationsController < ApplicationController
   	@registration = Registration.new
     @registration.student_id = params[:student_id] unless params[:student_id].nil?
     @student = Student.find(params[:student_id]) unless params[:student_id].nil?
-    @camps_qualified = Curriculum.for_rating(@student.rating).map{ |curriculum| curriculum.camps.active.upcoming }.flatten
-      
-    end
+    @camps_qualified = Curriculum.for_rating(@student.rating).map{ |curriculum| curriculum.camps.active.upcoming.chronological }.flatten
   end
 
   def edit

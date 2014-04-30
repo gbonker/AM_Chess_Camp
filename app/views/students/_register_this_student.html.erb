@@ -1,9 +1,9 @@
 <%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
    
-   <h3>New Registration</h3>
+   <h4>New Registration</h4>
     
-    <%= f.input :student_id, collection: [@student.name] %>
-    <%= f.input :camp_id, collection: @camps_qualified, prompt: "Select Camp..." %>
+    <%= f.input :student_id, as: :hidden, input_html: { value: @student.id } %>
+    <%= f.input :camp_id, collection: Curriculum.for_rating(@student.rating).map{ |curriculum| curriculum.camps.active.upcoming.chronological }.flatten.map{ |camp| ["#{camp.name}: #{camp.start_date.strftime('%B %e, %Y')} at #{camp.location.name}", camp.id] }, prompt: "Select Camp..." %>
     <%= f.input :payment_status, label: "Payment Status", collection: ["deposit", "full"], prompt: "Select Payment Status..." %>
     <%= f.input :points_earned, label: "Points Earned" %>
 
