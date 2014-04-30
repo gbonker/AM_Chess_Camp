@@ -3,9 +3,9 @@
   <div class="panel clearfix">
     <h5>Students Registered for this Camp (<%= @registrations.size %>)</h5>
     <ul class="side-nav">
-      <% if @registrations.size < @camp.max_students %>
-        <li><strong><%= link_to "Register this Student for a Camp", new_registration_path %></strong></li>
-      <% end %>
+      <%# if @registrations.size < @camp.max_students %>
+        <!-- <li><strong><%# link_to "Register a Student for this Camp", new_registration_path %></strong></li> -->
+      <%# end %>
       <% @registrations.each do |registration| %>
         <li><%= link_to "#{registration.student.name}", student_path(registration.student) %></li>
       <% end %>

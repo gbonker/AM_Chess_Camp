@@ -10,6 +10,8 @@ class CampsController < ApplicationController
   def show
     @instructors = @camp.instructors.alphabetical.to_a
     @registrations = @camp.registrations.by_student.to_a
+    @registration = Registration.new
+    #@students_qualified = Student.below_rating(@camp.curriculum.max_rating).at_or_above_rating(@camp.curriculum.min_rating).map{ |student| student.active.alphabetical }
   end
 
   def new

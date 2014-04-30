@@ -1,10 +1,10 @@
-<% unless @student.active == false %>
+<% unless @camp.active == false || @registrations.size >= @camp.max_students %>
 	<%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
 	   
 	   <h4>New Registration</h4>
 	    
-	    <%= f.input :student_id, as: :hidden, input_html: { value: @student.id } %>
-	    <%= f.input :camp_id, collection: Curriculum.for_rating(@student.rating).map{ |curriculum| curriculum.camps.active.upcoming.chronological }.flatten.map{ |camp| ["#{camp.name}: #{camp.start_date.strftime('%B %e, %Y')} at #{camp.location.name}", camp.id] }, prompt: "Select Camp..." %>
+	    <%= f.input :student_id, collection: Student.below_rating(@camp.curriculum.max_rating).at_or_above_rating(@camp.curriculum.min_rating).active.alphabetical.flatten.map{ |student| ["#{student.name}", student.id] }, prompt: "Select Student..." %>
+	    <%= f.input :camp_id, as: :hidden, input_html: { value: @camp.id } %>
 	    <%= f.input :payment_status, label: "Payment Status", collection: ["deposit", "full"], prompt: "Select Payment Status..." %>
 	    <%= f.input :points_earned, label: "Points Earned" %>
 
