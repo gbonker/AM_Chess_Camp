@@ -9,7 +9,7 @@ class CampsController < ApplicationController
 
   def show
     @instructors = @camp.instructors.alphabetical.to_a
-    @registrations = @camp.registrations.to_a
+    @registrations = @camp.registrations.by_student.to_a
   end
 
   def new

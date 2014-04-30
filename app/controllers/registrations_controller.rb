@@ -6,6 +6,11 @@ class RegistrationsController < ApplicationController
 
   def new
   	@registration = Registration.new
+    @registration.student_id = params[:student_id] unless params[:student_id].nil?
+    @student = Student.find(params[:student_id]) unless params[:student_id].nil?
+    @camps_qualified = Curriculum.for_rating(@student.rating).map{ |curriculum| curriculum.camps.active.upcoming }.flatten
+      
+    end
   end
 
   def edit
@@ -14,7 +19,7 @@ class RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(registration_params)
     if @registration.save
-      redirect_to @registration, notice: "#{@registration.student.first_name} is now registered for #{@registration.camp.name}."
+      redirect_to student_path(@registration.student), notice: "#{@registration.student.first_name} is now registered for #{@registration.camp.name}."
     else
       render action: 'new'
     end
@@ -22,7 +27,7 @@ class RegistrationsController < ApplicationController
 
   def update
   	if @registration.update(registration_params)
-      redirect_to @registration, notice: "#{@registration.student.first_name}'s registration for #{@registration.camp.name} was updated in the system."
+      redirect_to student_path(@registration.student), notice: "#{@registration.student.first_name}'s registration for #{@registration.camp.name} was updated in the system."
     else
       render action: 'edit'
     end
@@ -31,7 +36,7 @@ class RegistrationsController < ApplicationController
   def destroy
   	student = @registration.student
   	@registration.destroy
-    redirect_to student_path(student), notice: "#{@registration.student.first_name} is no longer registered for #{@registration.camp.name}."
+    redirect_to student_path(@registration.student), notice: "#{@registration.student.first_name} is no longer registered for #{@registration.camp.name}."
   end
 
   private

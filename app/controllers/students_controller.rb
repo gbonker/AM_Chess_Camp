@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
 
   def show
     @registrations = @student.registrations.all
+    @registration = Registration.new
   end
 
   def new
