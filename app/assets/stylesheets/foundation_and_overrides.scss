@@ -1252,6 +1252,17 @@ a img {
 
 }
 
+#login {
+	$f-dropdown-triangle-size: 0px;
+	font-size:18px;
+	font-color:#000;
+	text-color:#000;
+	color:#000;
+	$topbar-dropdown-link-color: #000;
+	a:link {color:#000000;}
+	link-color: #000;
+}
+
 select.date { width: 95px; }
 #camp_curriculum_id, #camp_location_id, #curriculum_name, #instructor_first_name, #instructor_last_name, #location_name, #location_street_1, #location_street_2, #student_first_name, #student_last_name, #family_family_name, #family_parent_first_name { width: 300px; }
 #instructor_bio, #curriculum_description { height: 7rem; }
