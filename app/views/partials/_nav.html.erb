@@ -7,21 +7,21 @@
       </ul>
       <section class="top-bar-section">
         <ul class="left">
-          <!-- options for curriculums -->
-          <li class="has-dropdown">
-            <%= link_to "Curriculums", curriculums_path %>
-            <ul class="dropdown">
-              <li><%= link_to "List Curriculums", curriculums_path %></li>
-              <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
-            </ul>
-          </li>
-
           <!-- options for camps -->
           <li class="has-dropdown">
             <%= link_to "Camps", camps_path %>
             <ul class="dropdown">
               <li><%= link_to "List Camps", camps_path %></li>
               <li><%= link_to "Add a Camp", new_camp_path %></li>
+            </ul>
+          </li>
+
+          <!-- options for curriculums -->
+          <li class="has-dropdown">
+            <%= link_to "Curriculums", curriculums_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Curriculums", curriculums_path %></li>
+              <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
             </ul>
           </li>
 
@@ -45,36 +45,29 @@
             </ul>
           </li>
 
-          <!-- options for students -->
+          <!-- options for students and families -->
           <li class="has-dropdown">
             <!-- <a href="#">Instructors</a> -->
-            <%= link_to "Students", students_path %>
+            <%= link_to "Customers", students_path %>
             <ul class="dropdown">
               <li><%= link_to "List Students", students_path %></li>
-              <li><%= link_to "Add a Student", new_student_path %></li>
-            </ul>
-          </li>
-
-          <!-- options for families -->
-          <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
-            <%= link_to "Families", families_path %>
-            <ul class="dropdown">
               <li><%= link_to "List Families", families_path %></li>
+              <li><%= link_to "Add a Student", new_student_path %></li>
               <li><%= link_to "Add a Family", new_family_path %></li>
             </ul>
           </li>
 
-          <div id="login">
-            <!-- content once logged in goes here -->
-            <% if logged_in? %>
-              <%= link_to 'Logout', logout_path %>
-              <br>[<%= current_user.proper_name %>:<%= current_user.role %>]
-            <% else %>
-              <%= link_to 'Login', login_path %>
-            <% end %>
-          </div>
-
+          <li class="has-dropdown">
+            <div id="login">
+              <!-- content once logged in goes here -->
+              <% if logged_in? %>
+                <%= link_to 'Logout', logout_path %>
+                <br>[<%= current_user.proper_name %>:<%= current_user.role %>]
+              <% else %>
+                <%= link_to 'Login', login_path %>
+              <% end %>
+            </div>
+          </li>
         </ul>
       </section>
     </nav>
