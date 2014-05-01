@@ -1,15 +1,17 @@
 <div class="row">
-  <div class="small-3 columns">
+  
+  <div class="small-4 columns">
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "location_details" %>
+  </div>
+
+  <div class="small-4 columns">
+    <!-- SIDEBAR CONTENT GOES HERE -->
+    <%= render partial: 'camps_using' %>
   </div>
 
   <div class="small-4 columns">
     <%= render partial: 'map', locals: {lat: @location.latitude, lon: @location.longitude, name: @location.name} %>
   </div>
 
-  <div class="small-5 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render partial: 'camps_using' %>
-  </div>
 </div>
