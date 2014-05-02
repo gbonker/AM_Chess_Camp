@@ -4,7 +4,7 @@
     <h5>Student's Registrations:</h5>
     <ul class="side-nav">
       <% @registrations.each do |registration| %>
-        <li><%= link_to "#{registration.camp.start_date.strftime('%B %e, %Y')}: #{registration.camp.name} at #{registration.camp.location.name}", registration_path(registration) %></li>
+        <li><%= link_to "#{registration.camp.start_date.strftime('%m/%d/%y')}: #{registration.camp.name} at #{registration.camp.location.name}", registration_path(registration) %></li>
       <% end %>
     </ul>
   </div>

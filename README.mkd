@@ -1,3 +1,9 @@
+## NOTE TO TAs ##
+
+I failed a few cucumber tests in level 4 because I have datepickers.
+
+#### 
+
 ## 67-272: Chess Camp Phase 5 Starter ##
 
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.

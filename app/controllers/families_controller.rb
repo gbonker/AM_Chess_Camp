@@ -20,7 +20,7 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     if @family.save
-      redirect_to @family, notice: "#{@family.family_name} was added to the system."
+      redirect_to @family, notice: "#{@family.family_name} family was added to the system."
     else
       render action: 'new'
     end
@@ -28,7 +28,7 @@ class FamiliesController < ApplicationController
 
   def update
   	if @family.update(family_params)
-      redirect_to @family, notice: "#{@family.family_name} was revised in the system."
+      redirect_to @family, notice: "#{@family.family_name} family was revised in the system."
     else
       render action: 'edit'
     end
@@ -36,7 +36,7 @@ class FamiliesController < ApplicationController
 
   def destroy
   	@family.destroy
-    redirect_to families_url, notice: "#{@family.family_name} was removed from the system."
+    redirect_to families_url, notice: "#{@family.family_name} family was removed from the system."
   end
 
   private

@@ -5,8 +5,9 @@
 <br></br>
 <table class="table">
   <tr>
-    <th width="200">Name</th>
+    <th width="150">Name</th>
     <th width="100">Rating</th>
+    <th width="100">Age</th>
     <th></th>
   </tr>
 
@@ -14,6 +15,7 @@
   <tr>
     <td><%= link_to student.name, student_path(student) %></td>
     <td align="center"><%= student.rating.zero? ? "Unrated" : student.rating %></td>
+    <td align="center"><%= student.age %></td>
     <td><%= link_to 'Edit', edit_student_path(student), class: "button tiny radius" %></td>
   </tr>
 <% end %>

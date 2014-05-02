@@ -1,19 +1,15 @@
-<% unless @registrations.empty? %>
-  <!-- <h3>&nbsp;</h3> -->
-  <div class="panel clearfix">
-    <h5>Students Registered for this Camp (<%= @registrations.size %>)</h5>
-    <ul class="side-nav">
-      <%# if @registrations.size < @camp.max_students %>
-        <!-- <li><strong><%# link_to "Register a Student for this Camp", new_registration_path %></strong></li> -->
-      <%# end %>
-      <% @registrations.each do |registration| %>
-        <li><%= link_to "#{registration.student.name}", student_path(registration.student) %></li>
-      <% end %>
-    </ul>
-  </div>
+<h5>Registrations (<%= @registrations.size %>)</h5>
 
-<% else %>
-  <div class="panel clearfix">
-    <h5>No Students Registered</h5>
-  </div>
+<table class="table">
+  <tr>
+    <th width="260">Name</th>
+    <th width="120">Rating</th>
+  </tr>
+
+<% @registrations.each do |registration| %>
+  <tr>
+    <td><%= link_to registration.student.name, student_path(registration.student) %></td>
+    <td align="center"><%= registration.student.rating.zero? ? "Unrated" : registration.student.rating %></td>
+  </tr>
 <% end %>
+</table>
