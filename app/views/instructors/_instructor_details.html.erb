@@ -9,26 +9,30 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
-<% if @instructor.user.nil? == false %>
-	
-	<strong>Username:&nbsp;&nbsp;</strong> 
-	<%= @instructor.user.username %><br /><br />
+<% if logged_in? && current_user.role == "admin" %>
+	<% if @instructor.user.nil? == false %>
+		
+		<strong>Username:&nbsp;&nbsp;</strong> 
+		<%= @instructor.user.username %><br /><br />
 
-	<strong>Role:&nbsp;&nbsp;</strong> 
-	<%= @instructor.user.role %><br /><br />
+		<strong>Role:&nbsp;&nbsp;</strong> 
+		<%= @instructor.user.role %><br /><br />
 
+	<% end %>
+
+	<strong>Phone:&nbsp;&nbsp;</strong> 
+	  <%= number_to_phone(@instructor.phone) %><br /><br />
+
+	<strong>Email:&nbsp;&nbsp;</strong> 
+	  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
+
+	<strong>Active?&nbsp;&nbsp;</strong>
+	  <%= @instructor.active ? "Yes" : "No" %><br /><br />
 <% end %>
-
-<strong>Phone:&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@instructor.phone) %><br /><br />
-
-<strong>Email:&nbsp;&nbsp;</strong> 
-  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
-
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @instructor.active ? "Yes" : "No" %><br /><br />
 
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
-<%= link_to "Edit this Instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+<% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
+	<%= link_to "Edit this Instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>

@@ -17,6 +17,7 @@
   <%= @location.active ? "Yes" : "No" %><br /><br />
 
 
-
-<%= link_to "Edit This Location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy Location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% if logged_in? && current_user.role == "admin" %>
+	<%= link_to "Edit This Location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+	<%= link_to 'Destroy Location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% end %>

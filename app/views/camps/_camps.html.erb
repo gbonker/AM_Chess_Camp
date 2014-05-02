@@ -1,7 +1,9 @@
 <h3><%= status %> Camps</h3>
 
-<% if (status == "Upcoming") %>
-  <%= link_to "Add a New Camp", new_camp_path, class: "button tiny radius" %>
+<% if logged_in? && current_user.role == "admin" %>
+  <% if (status == "Upcoming") %>
+    <%= link_to "Add a New Camp", new_camp_path, class: "button tiny radius" %>
+  <% end %>
 <% end %>
 
 <br></br>
@@ -11,7 +13,6 @@
     <th width="120">Start On</th>
     <th width="120">Time</th>
     <th></th>
-    <th></th>
   </tr>
 
 <% camps.each do |camp| %>
@@ -19,7 +20,9 @@
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
     <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <% if logged_in? && current_user.role == "admin" %>
+      <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

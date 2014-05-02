@@ -11,4 +11,7 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @curriculum.active ? "Yes" : "No" %><br /><br />
 
-<%= link_to "Edit this Curriculum", edit_curriculum_path(@curriculum), class: "button tiny radius" %>&nbsp;&nbsp;
+
+<% if logged_in? && current_user.role == "admin" %>
+	<%= link_to "Edit this Curriculum", edit_curriculum_path(@curriculum), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
