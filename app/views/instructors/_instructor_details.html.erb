@@ -31,6 +31,4 @@
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
-
 <%= link_to "Edit this Instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy Instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>

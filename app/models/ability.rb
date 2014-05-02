@@ -36,7 +36,7 @@ class Ability
             user.id == instructor.user.id
         end
     else # guest
-        can :read, :camps, :instructors, :curriculums, :locations
+        can :read, [Camp, Instructor, Curriculum, Location]
     end
 
     # Define abilities for the passed in user here. For example:
