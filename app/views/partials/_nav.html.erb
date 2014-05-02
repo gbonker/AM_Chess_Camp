@@ -62,13 +62,13 @@
               <!-- content once logged in goes here -->
               <% if logged_in? %>
                 <%= link_to 'Logout', logout_path %>
-                <br>[<%= current_user.instructor.proper_name %>:<%= current_user.role %>]
+                [<%= current_user.instructor.first_name %>]
               <% else %>
                 <%= link_to 'Login', login_path %>
               <% end %>
             </div>
           </li>
-          
+
         </ul>
       </section>
     </nav>

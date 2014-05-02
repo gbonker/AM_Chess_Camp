@@ -61,6 +61,8 @@ gem 'binding_of_caller'
 
 gem 'jquery-ui-rails'
 
+gem "nested_form"
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

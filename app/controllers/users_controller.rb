@@ -24,14 +24,14 @@ class UsersController < ApplicationController
   	@user = User.find(current_user)
     if @user.update_attributes(user_params)
       redirect_to(@user, :notice => 'User was successfully updated.')
-    else
+    else      
       render :action => "edit"
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :role, :password, :password_confirmation, :active)
+    params.require(:user).permit(:username, :role, :password, :password_confirmation, :active, :instructor_id)
   end
 
 end
