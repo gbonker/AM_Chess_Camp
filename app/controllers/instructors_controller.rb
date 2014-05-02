@@ -1,6 +1,7 @@
 class InstructorsController < ApplicationController
   include ActionView::Helpers::NumberHelper
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   def index
     @active_instructors = Instructor.active.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -51,6 +52,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:id, :username, :password, :password_confirmation, :role, :instructor_id, :active])
+      params.require(:instructor).permit(:picture, :first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:id, :username, :password, :password_confirmation, :role, :instructor_id, :active])
     end
 end

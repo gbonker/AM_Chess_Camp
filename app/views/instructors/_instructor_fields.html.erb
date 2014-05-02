@@ -1,6 +1,11 @@
-    <%= f.input :first_name, label: "First Name" %>
-    <%= f.input :last_name, label: "Last Name" %>
-    <%= f.input :phone, as: :string %>
-    <%= f.input :email %>
-    <%= f.input :bio, label: "Biography", input_html: { rows: 6 } %>
-    <%= f.input :active %>
+<div class="field">
+    <%= f.label :picture %><br />
+    <%= f.file_field :picture %>
+</div>
+
+<%= f.input :first_name, label: "First Name" %>
+<%= f.input :last_name, label: "Last Name" %>
+<%= f.input :phone, as: :string %>
+<%= f.input :email %>
+<%= f.input :bio, label: "Biography", input_html: { rows: 6 } %>
+<%= f.input :active %>

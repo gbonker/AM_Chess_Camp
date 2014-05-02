@@ -1272,6 +1272,17 @@ select.date { width: 95px; }
 #user_active { width: 100px; }
 #instructor_user_attributes_active { width: 50px; }
 
+.image_container {
+    width: 200px;
+    height: 225px;
+}
+
+/* resize images */
+.image_container img {
+    width: auto;
+    height: 200px;
+}
+
 @import 'foundation';
 
 .min_user {

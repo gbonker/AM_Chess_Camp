@@ -1,5 +1,11 @@
 <h3>Instructor Details</h3><br />
 
+<% unless @instructor.picture_url.nil? %>
+	<div class="image_container">
+	    <p><%= image_tag @instructor.picture_url %></p><br /><br />
+	</div>
+<% end %>
+
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
