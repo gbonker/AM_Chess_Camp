@@ -6,7 +6,7 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation, label: "Confirm Password" %>
 
+    <%= f.input :role, :collection => User::ROLES, prompt: "Select Role..." %>
     <%= f.input :active %>
-    <%= f.input :role, :collection => User::ROLES, :prompt => true %>
   </div>
 </div>

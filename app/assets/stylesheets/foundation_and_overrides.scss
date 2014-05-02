@@ -1269,30 +1269,25 @@ select.date { width: 95px; }
 #instructor_phone, #instructor_email, #camp_time_slot, #location_city, #family_email, #family_phone { width: 200px; }
 #location_state, #camp_start_date, #camp_end_date, #student_date_of_birth, #student_family_id { width: 175px; }
 #curriculum_min_rating, #curriculum_max_rating, #camp_max_students, #camp_cost, #location_zip, #location_max_capacity, #student_rating { width: 125px; }
+#user_active { width: 100px; }
+#instructor_user_attributes_active { width: 50px; }
 
 @import 'foundation';
 
 .min_user {
     background-color: #d1ecfb;
-    padding: 2px 2px 2px 5px;
+    padding: 10px 5px 5px 25px;
     border: 1px solid blue;
     margin-top: 5px;
     margin-bottom: 10px;
     border-radius: 10px;
-    select { width: 180px; }
-    input { width: 182px; }
+    select { width: 200px; }
+    input { width: 202px; }
 }
 
-/* Cutting back the spacing on simple_form... */
-.form-horizontal .min_user .control-label {
-    float: left;
-    padding-top: 3px;
-    text-align: right;
-    width: 60px;
-    font-size: 90%;
-}
+
 
 .form-horizontal .min_user .controls {
-    margin-left: 70px;
+    margin-left: 10px;
     width: 240px;
 }
