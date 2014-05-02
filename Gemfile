@@ -63,6 +63,8 @@ gem 'jquery-ui-rails'
 
 gem "nested_form"
 
+gem 'time_date_helpers', '0.0.2'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
