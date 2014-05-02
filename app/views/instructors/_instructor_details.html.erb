@@ -1,6 +1,17 @@
 <h3>Instructor Details</h3><br />
+
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
+
+<% if @instructor.user.nil? == false %>
+	
+	<strong>Username:&nbsp;&nbsp;</strong> 
+	<%= @instructor.user.username %><br /><br />
+
+	<strong>Role:&nbsp;&nbsp;</strong> 
+	<%= @instructor.user.role %><br /><br />
+
+<% end %>
 
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@instructor.phone) %><br /><br />
