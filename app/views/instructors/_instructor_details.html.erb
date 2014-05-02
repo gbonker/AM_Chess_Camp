@@ -9,7 +9,7 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
-<% if logged_in? && current_user.role == "admin" %>
+<% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
 	<% if @instructor.user.nil? == false %>
 		
 		<strong>Username:&nbsp;&nbsp;</strong> 
