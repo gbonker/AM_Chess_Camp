@@ -1,5 +1,21 @@
 <h3>Camp Details</h3><br />
 
+<div class="availability">
+  <% unless @camp.active == false || @registrations.size >= @camp.max_students %>
+    <% if @registrations_remaining == 1 %>
+      <strong>Available for Registration: <%= @registrations_remaining %> Spot Left! </strong><br /><br />
+    <% else %>
+      <strong>Available for Registration: <%= @registrations_remaining %> Spots Left! </strong><br /><br />
+    <% end %>
+  <% end %>
+</div>
+
+<div class="unavailability">
+  <% if @camp.active == true && @registrations.size >= @camp.max_students %>
+    <strong>No Remaining Registrations Available: Camp is Full</strong><br /><br />
+  <% end %>
+</div>
+
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= link_to @camp.name, curriculum_path(@camp.curriculum) %><br /><br />
 

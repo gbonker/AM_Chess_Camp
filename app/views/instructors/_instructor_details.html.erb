@@ -1,10 +1,12 @@
 <h3>Instructor Details</h3><br />
 
-<% unless @instructor.picture_url.nil? %>
-	<div class="image_container">
+<div class="image_container">
+	<% unless @instructor.picture_url.nil? %>
 	    <p><%= image_tag @instructor.picture_url %></p><br /><br />
-	</div>
-<% end %>
+	<% else %>
+		<p><%= image_tag 'photo_nil.jpg' %></p><br /><br />
+	<% end %>
+</div>
 
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />

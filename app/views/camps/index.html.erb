@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-7 columns">
+  <div class="small-8 columns">
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
     <p>&nbsp;</p>
@@ -7,12 +7,13 @@
     <br />
   </div>
 
-  <div class="small-1 columns">
-    &nbsp;
+  <div class="small-4 columns">
+    <% unless @inactive_camps.empty? %>
+      <!-- SIDEBAR CONTENT GOES HERE -->
+      <%= render :partial => "inactive_camps" %>
+    <% else %>
+      <br /><br /><br /><br /><br /><br /><%= image_tag 'Allegra.JPG', class: "left", width: "400" %>
+    <% end %>
   </div>
 
-  <div class="small-4 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render :partial => "inactive_camps" %>
-  </div>
 </div>

@@ -36,9 +36,9 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+   $body-bg: #FFFFF5;
+   $body-font-color: #0A0500;
+   $body-font-family: "Tahoma";
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -54,7 +54,7 @@
 // $primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
-$success-color: #B5EBC9;
+// $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
 
@@ -116,7 +116,7 @@ $success-color: #B5EBC9;
 // $header-font-family: $body-font-family;
 // $header-font-weight: 300;
 // $header-font-style: normal;
-// $header-font-color: #222;
+   $header-font-color: #291400;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -240,7 +240,7 @@ $success-color: #B5EBC9;
 // We use these to control text style.
 // $alert-font-weight: normal;
 // $alert-font-size: rem-calc(13);
-$alert-font-color: #43AC6A;
+// $alert-font-color: #fff;
 // $alert-font-color-alt: scale-color($secondary-color, $lightness: -66%);
 
 // We use this for close hover effect.
@@ -319,14 +319,14 @@ $alert-font-color: #43AC6A;
 
 // We use this to control the display property.
 // $button-display: inline-block;
-$button-margin-bottom: rem-calc(0);
+// $button-margin-bottom: rem-calc(20);
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
-// $button-font-tny: rem-calc(11);
-// $button-font-sml: rem-calc(13);
+   $button-font-tny: rem-calc(13);
+// $button-font-sml: rem-calc(15);
 // $button-font-med: rem-calc(16);
 // $button-font-lrg: rem-calc(20);
 // $button-font-weight: normal;
@@ -762,7 +762,7 @@ $button-margin-bottom: rem-calc(0);
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-$panel-bg: scale-color(#B5E7F5, $lightness: 50%);
+// $panel-bg: scale-color(#fff, $lightness: -5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1029,10 +1029,10 @@ $panel-bg: scale-color(#B5E7F5, $lightness: 50%);
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-$table-even-row-bg: #FAF2F0;
+// $table-even-row-bg: #f9f9f9  ;
 
 // These control the table cell border style
-$table-border-style: none;
+// $table-border-style: solid;
 // $table-border-size: 1px;
 // $table-border-color: #ddd;
 
@@ -1051,7 +1051,7 @@ $table-border-style: none;
 
 // These are for controlling the display and margin of tables
 // $table-display: table-cell;
-$table-margin-bottom: rem-calc(25);
+// $table-margin-bottom: rem-calc(20);
 
 //
 // TABS
@@ -1123,35 +1123,35 @@ $table-margin-bottom: rem-calc(25);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #F7EAE6;
-// $topbar-bg: $topbar-bg-color;
+   $topbar-bg-color: #210044;
+   $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: 50px;
-$topbar-margin-bottom: 20px;
+   $topbar-height: 50px;
+// $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
-// $topbar-title-font-size: rem-calc(17);
+   $topbar-title-font-size: rem-calc(18);
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #F7EAE6;
-$topbar-dropdown-link-color: #000;
-// $topbar-dropdown-link-bg: #F7EAE6;
+   $topbar-dropdown-bg: #371957;
+// $topbar-dropdown-link-color: #fff;
+// $topbar-dropdown-link-bg: #333;
 // $topbar-dropdown-link-weight: normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #000;
-$topbar-link-color-hover: #333;
+// $topbar-link-color: #fff;
+// $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-$topbar-link-font-size: rem-calc(18);
+   $topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #FAF2F0;
+   $topbar-link-bg-hover: #371957;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
@@ -1192,6 +1192,9 @@ $topbar-link-bg-hover: #FAF2F0;
 //
 
 // $include-html-visibility-classes: $include-html-classes;
+
+
+
 
 img.left {
   float: left;
@@ -1281,6 +1284,14 @@ select.date { width: 95px; }
 .image_container img {
     width: auto;
     height: 200px;
+}
+
+.availability {
+	color: #00CC00;
+}
+
+.unavailability {
+	color: red;
 }
 
 @import 'foundation';

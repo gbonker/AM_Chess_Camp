@@ -8,6 +8,8 @@
     <!-- SIDEBAR CONTENT GOES HERE -->
     <% if logged_in? && current_user.role == "admin" %>
       <%= render partial: 'register_for_this_camp' %>
+    <% else %>
+      <br /><br /><br /><%= image_tag 'RichiePlaying1.jpg', class: "right", width: "300" %>
     <% end %>
   </div>
 
