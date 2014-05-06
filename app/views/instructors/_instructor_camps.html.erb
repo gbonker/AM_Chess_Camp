@@ -1,7 +1,11 @@
 <% unless @upcoming_camps.empty? %>
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
-    <h5>Upcoming Camps with This Instructor</h5>
+    <% if logged_in? && @instructor == current_user.instructor %>
+      <h5>My Upcoming Camps<h5>
+    <% else %>
+      <h5>Upcoming Camps with <%= @instructor.first_name %>:</h5>
+    <% end %>
     <ul class="side-nav">
       <% @upcoming_camps.each do |camp| %>
         <li><%= link_to "#{camp.start_date.strftime('%m/%d/%y')}: #{camp.name} at #{camp.location.name}", camp_path(camp) %></li>
@@ -12,7 +16,11 @@
 
 <% unless @past_camps.empty? %>
   <div class="panel clearfix" id="past">
-    <h5>Past Camps with This Instructor</h5>
+    <% if logged_in? && @instructor == current_user.instructor %>
+      <h5>My Past Camps<h5>
+    <% else %>
+      <h5>Past Camps with <%= @instructor.first_name %></h5>
+    <% end %>
     <ul class="side-nav">
       <% @past_camps.each do |camp| %>
         <li><%= link_to "#{camp.start_date.strftime('%m/%d/%y')}: #{camp.name} at #{camp.location.name}", camp_path(camp) %></li>

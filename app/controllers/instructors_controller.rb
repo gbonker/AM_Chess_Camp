@@ -9,6 +9,7 @@ class InstructorsController < ApplicationController
   end
 
   def show
+    @instructors = Instructor.active.alphabetical.to_a
     @upcoming_camps = @instructor.camps.upcoming.chronological
     @past_camps = @instructor.camps.past.chronological
   end

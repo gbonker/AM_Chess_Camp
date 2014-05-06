@@ -1,18 +1,22 @@
-<h3>Family Details</h3><br />
+<div class="panel clearfix">
 
-<strong>Family Name:&nbsp;&nbsp;</strong> 
-  <%= @family.family_name %><br /><br />
+	<h3><%= @family.family_name %> Family Details</h3><br />
 
-<strong>Parent's First Name:&nbsp;&nbsp;</strong> 
-  <%= @family.parent_first_name %><br /><br />
+	<strong>Family Name:&nbsp;&nbsp;</strong> 
+	  <%= @family.family_name %><br /><br />
 
-<strong>Email:&nbsp;&nbsp;</strong> 
-  <%= @family.email %><br /><br />
+	<strong>Parent's First Name:&nbsp;&nbsp;</strong> 
+	  <%= @family.parent_first_name %><br /><br />
 
-<strong>Phone:&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@family.phone) %><br /><br />
+	<strong>Email:&nbsp;&nbsp;</strong> 
+	  <%= @family.email %><br /><br />
 
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @family.active ? "Yes" : "No" %><br /><br />
+	<strong>Phone:&nbsp;&nbsp;</strong> 
+	  <%= number_to_phone(@family.phone) %><br /><br />
 
-<%= link_to "Edit this Family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
+	<strong>Active?&nbsp;&nbsp;</strong>
+	  <%= @family.active ? "Yes" : "No" %><br /><br />
+
+	<%= link_to "Edit this Family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
+
+</div>

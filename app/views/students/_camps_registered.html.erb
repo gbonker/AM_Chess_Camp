@@ -1,7 +1,7 @@
 <% unless @registrations.empty? %>
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
-    <h5>Student's Registrations:</h5>
+    <h5><%= @student.first_name %>'s Registrations:</h5>
     <ul class="side-nav">
       <% @registrations.each do |registration| %>
         <li><%= link_to "#{registration.camp.start_date.strftime('%m/%d/%y')}: #{registration.camp.name} at #{registration.camp.location.name}", registration_path(registration) %></li>

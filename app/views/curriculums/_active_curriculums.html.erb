@@ -1,6 +1,8 @@
 <h3>Active Curriculums</h3>
 
-<%= link_to "Add a New Curriculum", new_curriculum_path, class: "button tiny radius" %>
+<% if logged_in? && current_user.role == "admin" %>
+  <%= link_to "Add a New Curriculum", new_curriculum_path, class: "button tiny radius" %>
+<% end %>
 
 <br></br>
 <table class="table">
@@ -9,7 +11,6 @@
     <th width="200">Ratings Range</th>
     <th width="100">Times Used</th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @active_curriculums.each do |curriculum| %>
@@ -17,7 +18,9 @@
     <td><%= link_to curriculum.name, curriculum_path(curriculum) %></td>
     <td align="center"><%= curriculum.min_rating.zero? ? "Unrated" : curriculum.min_rating %> - <%= curriculum.max_rating %></td>
     <td align="center"><%= curriculum.camps.size %></td>
-    <td><%= link_to 'Edit', edit_curriculum_path(curriculum), class: "button tiny radius" %></td>
+    <% if logged_in? && current_user.role == "admin" %>
+      <td><%= link_to 'Edit', edit_curriculum_path(curriculum), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

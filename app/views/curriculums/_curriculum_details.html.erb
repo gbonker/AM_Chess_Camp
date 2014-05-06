@@ -1,21 +1,25 @@
-<h3>Curriculum Details</h3><br />
-<strong>Name:&nbsp;&nbsp;</strong> 
-  <%= @curriculum.name %><br /><br />
+<div class="panel clearfix">
 
-<strong>Description:&nbsp;&nbsp;</strong><br /> 
-  <%= @curriculum.description %><br /><br />
+	<h3>Curriculum Details</h3><br />
+	<strong>Name:&nbsp;&nbsp;</strong> 
+	  <%= @curriculum.name %><br /><br />
 
-<strong>Ratings Range:&nbsp;&nbsp;</strong> 
-  <%= @curriculum.min_rating.zero? ? "Unrated" : @curriculum.min_rating %> - <%= @curriculum.max_rating %><br /><br />
+	<strong>Description:&nbsp;&nbsp;</strong><br /> 
+	  <%= @curriculum.description %><br /><br />
 
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @curriculum.active ? "Yes" : "No" %><br /><br />
+	<strong>Ratings Range:&nbsp;&nbsp;</strong> 
+	  <%= @curriculum.min_rating.zero? ? "Unrated" : @curriculum.min_rating %> - <%= @curriculum.max_rating %><br /><br />
+
+	<strong>Active?&nbsp;&nbsp;</strong>
+	  <%= @curriculum.active ? "Yes" : "No" %><br /><br />
 
 
-<% if logged_in? && current_user.role == "admin" %>
-	<%= link_to "Edit this Curriculum", edit_curriculum_path(@curriculum), class: "button tiny radius" %>&nbsp;&nbsp;
-<% end %>
+	<% if logged_in? && current_user.role == "admin" %>
+		<%= link_to "Edit this Curriculum", edit_curriculum_path(@curriculum), class: "button tiny radius" %>&nbsp;&nbsp;
+	<% end %>
 
-<br /><br /><br />
+	<br />
 
-<%= image_tag 'Nate&Sarah.jpg', class: "left", width: "600" %>
+</div>
+
+	<%= image_tag 'Nate&Sarah.jpg', class: "center", width: "610" %>

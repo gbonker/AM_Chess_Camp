@@ -9,7 +9,7 @@ class Ability
         can :manage, :all
     elsif user.role? :instructor
         can :index, [Instructor, Location, Curriculum, Camp]
-        can :show, Camp
+        can :show, [Camp, Instructor, Location, Curriculum]
 
         can :read, Student do |this_student|  
             instructor_students = user.instructor.camps.map{|c| c.students.map(&:id)}.flatten

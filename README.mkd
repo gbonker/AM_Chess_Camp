@@ -1,6 +1,6 @@
 ## NOTE TO TAs ##
 
-I failed a few cucumber tests in level 4 because I have datepickers.
+My location show pages have dynamic maps.
 
 #### 
 

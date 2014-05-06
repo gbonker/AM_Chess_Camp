@@ -1,40 +1,50 @@
-<h3>Instructor Details</h3><br />
+<div class="panel clearfix">
 
-<div class="image_container">
-	<% unless @instructor.picture_url.nil? %>
-	    <p><%= image_tag @instructor.picture_url %></p><br /><br />
+	<% if logged_in? && @instructor == current_user.instructor %>
+		<h3>My Details</h3><br />
 	<% else %>
-		<p><%= image_tag 'photo_nil.jpg' %></p><br /><br />
+		<h3><%= @instructor.proper_name %>'s Details</h3><br />
+	<% end %>
+
+	<div class="image_container">
+		<% unless @instructor.picture_url.nil? %>
+		    <p><%= image_tag @instructor.picture_url %></p><br /><br />
+		<% else %>
+			<p><%= image_tag 'photo_nil.jpg' %></p><br /><br />
+		<% end %>
+	</div>
+
+	<% if logged_in? && @instructor == current_user.instructor %>
+		<strong>Name:&nbsp;&nbsp;</strong> 
+		  <%= @instructor.proper_name %><br /><br />
+	<% end %>
+
+	<% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
+		<% if @instructor.user.nil? == false %>
+			
+			<strong>Username:&nbsp;&nbsp;</strong> 
+			<%= @instructor.user.username %><br /><br />
+
+			<strong>Role:&nbsp;&nbsp;</strong> 
+			<%= @instructor.user.role %><br /><br />
+
+		<% end %>
+
+		<strong>Phone:&nbsp;&nbsp;</strong> 
+		  <%= number_to_phone(@instructor.phone) %><br /><br />
+
+		<strong>Email:&nbsp;&nbsp;</strong> 
+		  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
+
+		<strong>Active?&nbsp;&nbsp;</strong>
+		  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+	<% end %>
+
+	<strong>Biography:</strong><br />
+	  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
+
+
+	<% if logged_in? && (current_user.role == "admin" || (current_user.role == "instructor" && @instructor == current_user.instructor)) %>
+		<%= link_to "Edit this Instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
 	<% end %>
 </div>
-
-<strong>Name:&nbsp;&nbsp;</strong> 
-  <%= @instructor.proper_name %><br /><br />
-
-<% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
-	<% if @instructor.user.nil? == false %>
-		
-		<strong>Username:&nbsp;&nbsp;</strong> 
-		<%= @instructor.user.username %><br /><br />
-
-		<strong>Role:&nbsp;&nbsp;</strong> 
-		<%= @instructor.user.role %><br /><br />
-
-	<% end %>
-
-	<strong>Phone:&nbsp;&nbsp;</strong> 
-	  <%= number_to_phone(@instructor.phone) %><br /><br />
-
-	<strong>Email:&nbsp;&nbsp;</strong> 
-	  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
-
-	<strong>Active?&nbsp;&nbsp;</strong>
-	  <%= @instructor.active ? "Yes" : "No" %><br /><br />
-<% end %>
-
-<strong>Biography</strong><br />
-  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
-
-<% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
-	<%= link_to "Edit this Instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
-<% end %>

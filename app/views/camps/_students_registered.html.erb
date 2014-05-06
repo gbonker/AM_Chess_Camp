@@ -1,15 +1,23 @@
-<h5>Registrations (<%= @registrations.size %>)</h5>
+<% unless @camp.active == false || @registrations.empty? %>
 
-<table class="table">
-  <tr>
-    <th width="260" align="left">Name</th>
-    <th width="120">Rating</th>
-  </tr>
+	<h5>Registrations (<%= @registrations.size %>)</h5>
 
-<% @registrations.each do |registration| %>
-  <tr>
-    <td><%= link_to registration.student.name, student_path(registration.student) %></td>
-    <td align="center"><%= registration.student.rating.zero? ? "Unrated" : registration.student.rating %></td>
-  </tr>
+	<table class="table">
+	  <tr>
+	    <th width="260" align="left">Name</th>
+	    <th width="120">Rating</th>
+	  </tr>
+
+	<% @registrations.each do |registration| %>
+	  <tr>
+	    <td><%= link_to registration.student.name, student_path(registration.student) %></td>
+	    <td align="center"><%= registration.student.rating.zero? ? "Unrated" : registration.student.rating %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+<% else %>
+	<div class="panel clearfix">
+		<h5>No Students Registered Yet</h5>
+	</div>
 <% end %>
-</table>

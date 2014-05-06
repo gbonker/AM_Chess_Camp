@@ -1,21 +1,27 @@
-<h3>Student Details</h3><br />
+<div class="panel clearfix">
 
-<strong>Name:&nbsp;&nbsp;</strong> 
-  <%= @student.proper_name %><br /><br />
+	<h3><%= @student.first_name %>'s Details</h3><br />
 
-<strong>Parent:&nbsp;&nbsp;</strong>
-  <%= link_to @student.family.family_name, family_path(@student.family) %><br /><br />
+	<strong>Name:&nbsp;&nbsp;</strong> 
+	  <%= @student.proper_name %><br /><br />
 
-<strong>Date of Birth:&nbsp;&nbsp;</strong> 
-  <%= @student.date_of_birth.strftime('%m/%d/%Y') %><br /><br />
+	<strong>Parent:&nbsp;&nbsp;</strong>
+	  <%= link_to @student.family.family_name, family_path(@student.family) %><br /><br />
 
-<strong>Age:&nbsp;&nbsp;</strong> 
-  <%= @student.age %><br /><br />
+	<strong>Date of Birth:&nbsp;&nbsp;</strong> 
+	  <%= @student.date_of_birth.strftime('%m/%d/%Y') %><br /><br />
 
-<strong>Rating:&nbsp;&nbsp;</strong> 
-  <%= @student.rating.zero? ? "Unrated" : @student.rating %><br /><br />
+	<strong>Age:&nbsp;&nbsp;</strong> 
+	  <%= @student.age %><br /><br />
 
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @student.active ? "Yes" : "No" %><br /><br />
+	<strong>Rating:&nbsp;&nbsp;</strong> 
+	  <%= @student.rating.zero? ? "Unrated" : @student.rating %><br /><br />
 
-<%= link_to "Edit This Student", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
+	<strong>Active?&nbsp;&nbsp;</strong>
+	  <%= @student.active ? "Yes" : "No" %><br /><br />
+
+	<% if logged_in? && current_user.role == "admin" %>
+		<%= link_to "Edit This Student", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
+	<% end %>
+
+</div>

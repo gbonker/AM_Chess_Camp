@@ -1,45 +1,50 @@
-<h3>Camp Details</h3><br />
+<div class="panel clearfix">
 
-<div class="availability">
-  <% unless @camp.active == false || @registrations.size >= @camp.max_students %>
-    <% if @registrations_remaining == 1 %>
-      <strong>Available for Registration: <%= @registrations_remaining %> Spot Left! </strong><br /><br />
-    <% else %>
-      <strong>Available for Registration: <%= @registrations_remaining %> Spots Left! </strong><br /><br />
+  <h3>Camp Details</h3><br />
+
+  <div class="availability">
+    <% unless @camp.active == false || @registrations.size >= @camp.max_students %>
+      <% if @registrations_remaining == 1 %>
+        <strong>Available for Registration: <%= @registrations_remaining %> Spot Left! </strong><br /><br />
+      <% else %>
+        <strong>Available for Registration: <%= @registrations_remaining %> Spots Left! </strong><br /><br />
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="unavailability">
+    <% if @camp.active == true && @registrations.size >= @camp.max_students %>
+      <strong>No Remaining Registrations Available: Camp is Full</strong><br /><br />
+    <% end %>
+  </div>
+
+  <strong>Name:&nbsp;&nbsp;</strong> 
+    <%= link_to @camp.name, curriculum_path(@camp.curriculum) %><br /><br />
+
+  <strong>Location:&nbsp;&nbsp;</strong> 
+    <%= link_to @camp.location.name, location_path(@camp.location) %><br /><br />  
+
+  <strong>Cost:&nbsp;&nbsp;</strong> 
+    <%= number_to_currency(@camp.cost) %><br /><br />
+
+  <strong>Max Students:&nbsp;&nbsp;</strong> 
+    <%= @camp.max_students %><br /><br />
+
+  <strong>Dates:&nbsp;&nbsp;</strong> 
+    <%= @camp.start_date.strftime('%m/%d/%y') %> 
+    <% if @camp.start_date != @camp.end_date %>
+      <%= "- #{@camp.end_date.strftime('%m/%d/%y')}" %>
+    <% end %>
+    <br /><br />
+
+  <strong>Time:&nbsp;&nbsp;</strong> 
+    <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
+
+  <strong>Active?&nbsp;&nbsp;</strong>
+    <%= @camp.active ? "Yes" : "No" %><br /><br />
+
 </div>
 
-<div class="unavailability">
-  <% if @camp.active == true && @registrations.size >= @camp.max_students %>
-    <strong>No Remaining Registrations Available: Camp is Full</strong><br /><br />
-  <% end %>
-</div>
-
-<strong>Name:&nbsp;&nbsp;</strong> 
-  <%= link_to @camp.name, curriculum_path(@camp.curriculum) %><br /><br />
-
-<strong>Location:&nbsp;&nbsp;</strong> 
-  <%= link_to @camp.location.name, location_path(@camp.location) %><br /><br />  
-
-<strong>Cost:&nbsp;&nbsp;</strong> 
-  <%= number_to_currency(@camp.cost) %><br /><br />
-
-<strong>Max Students:&nbsp;&nbsp;</strong> 
-  <%= @camp.max_students %><br /><br />
-
-<strong>Dates:&nbsp;&nbsp;</strong> 
-  <%= @camp.start_date.strftime('%m/%d/%y') %> 
-  <% if @camp.start_date != @camp.end_date %>
-    <%= "- #{@camp.end_date.strftime('%m/%d/%y')}" %>
-  <% end %>
-  <br /><br />
-
-<strong>Time:&nbsp;&nbsp;</strong> 
-  <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
-
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @camp.active ? "Yes" : "No" %><br /><br />
 
 <% unless @instructors.empty? %>
   <!-- <h3>&nbsp;</h3> -->

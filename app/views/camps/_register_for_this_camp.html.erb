@@ -1,7 +1,7 @@
 <% unless @camp.active == false || @registrations.size >= @camp.max_students %>
 	<%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
 	   
-	   <h4>New Registration</h4>
+	   <h4>Register a Student</h4>
 	    
 	    <%= f.input :student_id, collection: Student.below_rating(@camp.curriculum.max_rating).at_or_above_rating(@camp.curriculum.min_rating).active.alphabetical.flatten.map{ |student| ["#{student.name}", student.id] }, prompt: "Select Student..." %>
 	    <%= f.input :camp_id, as: :hidden, input_html: { value: @camp.id } %>
@@ -9,7 +9,7 @@
 	    <%= f.input :points_earned, label: "Points Earned" %>
 
 	    <div class="form-actions">
-	      <%= f.submit nil, class: 'button radius' %>
+	      <%= f.submit nil, class: 'button tiny radius' %>
 	    </div>
 
 	<% end %>

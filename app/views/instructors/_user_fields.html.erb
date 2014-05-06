@@ -6,7 +6,9 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation, label: "Confirm Password" %>
 
-    <%= f.input :role, :collection => User::ROLES, prompt: "Select Role..." %>
+    <% if logged_in? && current_user.role == "admin" %>
+    	<%= f.input :role, :collection => User::ROLES, prompt: "Select Role..." %>
+    <% end %>
     <%= f.input :active %>
   </div>
 </div>

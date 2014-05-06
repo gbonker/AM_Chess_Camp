@@ -8,11 +8,12 @@
   </div>
 
   <div class="small-4 columns">
-    <% unless @inactive_camps.empty? %>
+    <% if logged_in? && @inactive_camps.empty? == false %>
       <!-- SIDEBAR CONTENT GOES HERE -->
-      <%= render :partial => "inactive_camps" %>
+      <br /><br /><br /><br /><br /><%= render :partial => "inactive_camps" %>
+      <br /><%= image_tag 'Allegra.JPG', class: "left", width: "400" %>
     <% else %>
-      <br /><br /><br /><br /><br /><br /><%= image_tag 'Allegra.JPG', class: "left", width: "400" %>
+      <br /><br /><br /><br /><br /><br /><br /><%= image_tag 'Allegra.JPG', class: "left", width: "400" %>
     <% end %>
   </div>
 

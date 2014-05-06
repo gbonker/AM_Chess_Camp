@@ -15,8 +15,10 @@
 
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
-    <% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
-      <%= render partial: 'students_registered' %>
+    <% if logged_in? %>
+      <% if current_user.role == "admin" || (current_user.role == "instructor" && @camp.instructors.include?(current_user.instructor)) %>
+        <%= render partial: 'students_registered' %>
+      <% end %>
     <% end %>
   </div>
 </div>
