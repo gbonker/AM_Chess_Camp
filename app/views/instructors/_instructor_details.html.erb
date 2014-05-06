@@ -3,7 +3,7 @@
 	<% if logged_in? && @instructor == current_user.instructor %>
 		<h3>My Details</h3><br />
 	<% else %>
-		<h3><%= @instructor.proper_name %>'s Details</h3><br />
+		<h3>Instructor Details</h3><br />
 	<% end %>
 
 	<div class="image_container">
@@ -14,10 +14,8 @@
 		<% end %>
 	</div>
 
-	<% if logged_in? && @instructor == current_user.instructor %>
-		<strong>Name:&nbsp;&nbsp;</strong> 
-		  <%= @instructor.proper_name %><br /><br />
-	<% end %>
+	<strong>Name:&nbsp;&nbsp;</strong> 
+		<%= @instructor.proper_name %><br /><br />
 
 	<% if logged_in? && (current_user.role == "admin" || current_user.role == "instructor") %>
 		<% if @instructor.user.nil? == false %>
