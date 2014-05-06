@@ -21,7 +21,7 @@
 	  <%= @student.active ? "Yes" : "No" %><br /><br />
 
 	<% if logged_in? && current_user.role == "admin" %>
-		<%= link_to "Edit This Student", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
+		<%= link_to "Edit #{@student.first_name}'s Details", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
 	<% end %>
 
 </div>

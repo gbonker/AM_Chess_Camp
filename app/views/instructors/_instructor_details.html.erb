@@ -44,7 +44,11 @@
 	  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
 
-	<% if logged_in? && (current_user.role == "admin" || (current_user.role == "instructor" && @instructor == current_user.instructor)) %>
-		<%= link_to "Edit this Instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+	<% if logged_in? && @instructor == current_user.instructor %>
+		<%= link_to "Edit My Details", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
 	<% end %>
+	<% if logged_in? && current_user.role == "admin" && @instructor != current_user.instructor %>
+		<%= link_to "Edit #{@instructor.first_name}'s Details", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+	<% end %>
+
 </div>
