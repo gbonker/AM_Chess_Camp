@@ -15,9 +15,35 @@
 <% end %>
 
 <% if logged_in? && current_user.role == "admin" %>
-	<p>NOT BUILT YET</p>
+	<div class="row">
+		<div class="small-7 columns">
+	    	<!-- MAIN CONTENT GOES HERE -->
+	    	<h1><%= current_user.instructor.first_name %>'s Admin Dashboard</h1>
+	    	<%= render :partial => "instructors/upcoming_camps" %>
+	    	<br />
+	    	<%= render partial: 'testimonials' %>
+	  	</div>
+
+	  	<div class="small-5 columns">
+	    	<!-- SIDEBAR CONTENT GOES HERE -->
+	    	<%= render :partial => "available_camps" %>
+	  	</div>
+	</div>
 <% end %>
 
 <% if logged_in? && current_user.role == "instructor" %>
-	<p>NOT BUILT YET</p>
+	<div class="row">
+		<div class="small-7 columns">
+	    	<!-- MAIN CONTENT GOES HERE -->
+	    	<h1><%= current_user.instructor.first_name %>'s Instructor Dashboard</h1>
+	    	<%= render :partial => "instructors/upcoming_camps" %>
+	    	<br />
+	    	<%= render partial: 'instructors/upcoming_students' %>
+	  	</div>
+
+	  	<div class="small-5 columns">
+	    	<!-- SIDEBAR CONTENT GOES HERE -->
+	    	<%= render :partial => "" %>
+	  	</div>
+	</div>
 <% end %>

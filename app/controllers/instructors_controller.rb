@@ -10,8 +10,9 @@ class InstructorsController < ApplicationController
 
   def show
     @instructors = Instructor.active.alphabetical.to_a
-    @upcoming_camps = @instructor.camps.upcoming.chronological
-    @past_camps = @instructor.camps.past.chronological
+    @upcoming_camps = @instructor.camps.upcoming.active.chronological
+    @past_camps = @instructor.camps.past.active.chronological
+    @upcoming_students = @instructor.camps.registrations.select{ |registration| @upcoming_camps.include? registration.camp }.students
   end
 
   def new

@@ -1,0 +1,15 @@
+<% unless @upcoming_camps.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <% if logged_in? %>
+      <h5>My Upcoming Camps<h5>
+    <% else %>
+      <h5>Upcoming Camps:</h5>
+    <% end %>
+    <ul class="side-nav">
+      <% @upcoming_camps.each do |camp| %>
+        <li><%= link_to "#{camp.start_date.strftime('%m/%d/%y')}: #{camp.name} at #{camp.location.name}", camp_path(camp) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
