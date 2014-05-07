@@ -1,3 +1,4 @@
+<!-- GUEST HOME PAGE -->
 <% if logged_in?.nil? %>
 	<div class="row">
 		<div class="small-7 columns">
@@ -14,6 +15,7 @@
 	</div>
 <% end %>
 
+<!-- ADMIN HOME PAGE -->
 <% if logged_in? && current_user.role == "admin" %>
 	<div class="row">
 		<div class="small-7 columns">
@@ -21,16 +23,21 @@
 	    	<h1><%= current_user.instructor.first_name %>'s Admin Dashboard</h1>
 	    	<%= render :partial => "instructors/upcoming_camps" %>
 	    	<br />
-	    	<%# render partial: 'instructors/upcoming_students' %>
+	    	<%# render partial: 'upcoming_students' %>
 	  	</div>
 
 	  	<div class="small-5 columns">
 	    	<!-- SIDEBAR CONTENT GOES HERE -->
+	    	<% unless @empty_camps.empty? %>
+	    		<%= render :partial => "empty_camps" %>
+	    		<br />
+	    	<% end %>
 	    	<%= render :partial => "available_camps" %>
 	  	</div>
 	</div>
 <% end %>
 
+<!-- INSTRUCTOR HOME PAGE -->
 <% if logged_in? && current_user.role == "instructor" %>
 	<div class="row">
 		<div class="small-7 columns">
@@ -38,7 +45,7 @@
 	    	<h1><%= current_user.instructor.first_name %>'s Instructor Dashboard</h1>
 	    	<%= render :partial => "instructors/upcoming_camps" %>
 	    	<br />
-	    	<%# render partial: 'instructors/upcoming_students' %>
+	    	<%# render partial: 'upcoming_students' %>
 	  	</div>
 
 	  	<div class="small-5 columns">
