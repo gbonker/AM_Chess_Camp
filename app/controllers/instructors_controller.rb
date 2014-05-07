@@ -12,7 +12,7 @@ class InstructorsController < ApplicationController
     @instructors = Instructor.active.alphabetical.to_a
     @upcoming_camps = @instructor.camps.upcoming.active.chronological
     @past_camps = @instructor.camps.past.active.chronological
-    @upcoming_students = @instructor.camps.registrations.select{ |registration| @upcoming_camps.include? registration.camp }.students
+    #@upcoming_students = @instructor.camps.registrations.select{ |registration| @upcoming_camps.include? registration.camp }.students.to_a
   end
 
   def new
