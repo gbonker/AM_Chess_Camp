@@ -1,5 +1,10 @@
 <% if (status == "Upcoming" && @upcoming_camps.empty? == false) || (status == "Past" && @past_camps.empty? == false) %>
-  <h3><%= status %> Camps</h3>
+  
+  <% if logged_in? %>
+    <h3><%= status %> Camps</h3>
+  <% else %>
+    <h2><%= status %> Camps</h2>
+  <% end %>
 
   <% if logged_in? && current_user.role == "admin" %>
     <% if (status == "Upcoming") %>
@@ -13,7 +18,9 @@
       <th width="175">Name</th>
       <th width="120">Start On</th>
       <th width="120">Time</th>
-      <th width="140">Availibility</th>
+      <% if status == "Upcoming" %>
+        <th width="140">Availibility</th>
+      <% end %>
       <th></th>
     </tr>
 
@@ -22,10 +29,12 @@
       <td><%= link_to camp.name, camp_path(camp) %></td>
       <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
       <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-      <% if camp.registrations.size < camp.max_students %>
-        <div class="availability"><td align="center">Available</td></div>
-      <% else %>
-        <div class="unavailability"><td align="center">Full</td></div>
+      <% if status == "Upcoming" %>
+        <% if camp.registrations.size < camp.max_students %>
+          <td align="center">Available</td>
+        <% else %>
+          <td align="center">Full</td>
+        <% end %>
       <% end %>
       <% if logged_in? && current_user.role == "admin" %>
         <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>

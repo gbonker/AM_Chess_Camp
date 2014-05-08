@@ -37,6 +37,7 @@ class Ability
         end
     else # guest
         can :read, [Camp, Instructor, Curriculum, Location]
+        can :index, [Instructor, Location, Curriculum, Camp]
     end
 
     # Define abilities for the passed in user here. For example:

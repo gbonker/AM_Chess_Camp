@@ -18,47 +18,42 @@
             <% end %>
           </li>
 
-          <% if logged_in? %>
-            <!-- options for curriculums -->
-            <li class="has-dropdown">
-              <%= link_to "Curriculums", curriculums_path %>
-              <% if logged_in? && current_user.role == "admin" %>
-                <ul class="dropdown">
-                  <li><%= link_to "List Curriculums", curriculums_path %></li>
-                  <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
-                </ul>
-              <% end %>
-            </li>
+          <!-- options for curriculums -->
+          <li class="has-dropdown">
+            <%= link_to "Curriculums", curriculums_path %>
+            <% if logged_in? && current_user.role == "admin" %>
+              <ul class="dropdown">
+                <li><%= link_to "List Curriculums", curriculums_path %></li>
+                <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
+              </ul>
+            <% end %>
+          </li>
 
-            <!-- options for instructors -->
-            <li class="has-dropdown">
-              <!-- <a href="#">Instructors</a> -->
-              <%= link_to "Instructors", instructors_path %>
-              <% if logged_in? && current_user.role == "admin" %>
-                <ul class="dropdown">
-                  <li><%= link_to "List Instructors", instructors_path %></li>
-                  <li><%= link_to "Add an Instructor", new_instructor_path %></li>
-                </ul>
-              <% end %>
-            </li>
+          <!-- options for locations -->
+          <li class="has-dropdown">
+            <%= link_to "Locations", locations_path %>
+            <% if logged_in? && current_user.role == "admin" %>
+              <ul class="dropdown">
+                <li><%= link_to "List Locations", locations_path %></li>
+                <li><%= link_to "Add a Location", new_location_path %></li>
+              </ul>
+            <% end %>
+          </li>
 
-            <!-- options for locations -->
-            <li class="has-dropdown">
-              <!-- <a href="#">Instructors</a> -->
-              <%= link_to "Locations", locations_path %>
-              <% if logged_in? && current_user.role == "admin" %>
-                <ul class="dropdown">
-                  <li><%= link_to "List Locations", locations_path %></li>
-                  <li><%= link_to "Add a Location", new_location_path %></li>
-                </ul>
-              <% end %>
-            </li>
-          <% end %>
+          <!-- options for instructors -->
+          <li class="has-dropdown">
+            <%= link_to "Instructors", instructors_path %>
+            <% if logged_in? && current_user.role == "admin" %>
+              <ul class="dropdown">
+                <li><%= link_to "List Instructors", instructors_path %></li>
+                <li><%= link_to "Add an Instructor", new_instructor_path %></li>
+              </ul>
+            <% end %>
+          </li>
 
           <% if logged_in? && current_user.role == "admin" %>
             <!-- options for students and families -->
             <li class="has-dropdown">
-              <!-- <a href="#">Instructors</a> -->
               <%= link_to "Customers", students_path %>
               <ul class="dropdown">
                 <li><%= link_to "List Students", students_path %></li>

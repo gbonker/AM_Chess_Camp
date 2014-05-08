@@ -2,10 +2,18 @@
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
     <h5>My Upcoming Students<h5>
-    <ul class="side-nav">
-      <% @upcoming_students.each do |student| %>
-        <li><%= link_to student.name, student_path(student) %></li>
-      <% end %>
-    </ul>
+    <table class="table">
+		<tr>
+		    <th width="260" align="left">Name</th>
+		    <th width="120">Rating</th>
+		</tr>
+
+		<% @upcoming_students.each do |student| %>
+		  <tr>
+		    <td><%= link_to student.proper_name, student_path(student) %></td>
+		    <td align="center"><%= student.rating.zero? ? "Unrated" : student.rating %></td>
+		  </tr>
+		<% end %>
+	</table>
   </div>
 <% end %>

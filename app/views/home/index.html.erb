@@ -11,6 +11,7 @@
 	  	<div class="small-5 columns">
 	    	<!-- SIDEBAR CONTENT GOES HERE -->
 	    	<%= render :partial => "available_camps" %>
+	    	<%= image_tag 'TaylorAlllerdiceTourney.JPG', class: "center", width: "400" %>
 	  	</div>
 	</div>
 <% end %>
@@ -24,6 +25,7 @@
 	    	<%= render :partial => "instructors/upcoming_camps" %>
 	    	<br />
 	    	<%# render partial: 'upcoming_students' %>
+	    	<%= render :partial => "instructors/instructor_details" %>
 	  	</div>
 
 	  	<div class="small-5 columns">
@@ -32,7 +34,15 @@
 	    		<%= render :partial => "empty_camps" %>
 	    		<br />
 	    	<% end %>
-	    	<%= render :partial => "available_camps" %>
+	    	<% unless @instructorless_camps.empty? %>
+	    		<%= render :partial => "instructorless_camps" %>
+	    		<br />
+	    	<% end %>
+	    	<% unless @registrationless_students.empty? %>
+	    		<%= render :partial => "registrationless_students" %>
+	    		<br />
+	    	<% end %>
+	    	<%= render :partial => "available_camps" %><br />
 	  	</div>
 	</div>
 <% end %>
@@ -42,15 +52,15 @@
 	<div class="row">
 		<div class="small-7 columns">
 	    	<!-- MAIN CONTENT GOES HERE -->
-	    	<h1><%= current_user.instructor.first_name %>'s Instructor Dashboard</h1>
+	    	<h1><%= current_user.instructor.first_name %>'s Dashboard</h1>
 	    	<%= render :partial => "instructors/upcoming_camps" %>
 	    	<br />
-	    	<%# render partial: 'upcoming_students' %>
+	    	<%= render :partial => "instructors/instructor_details" %>
 	  	</div>
 
 	  	<div class="small-5 columns">
 	    	<!-- SIDEBAR CONTENT GOES HERE -->
-	    	<%# render :partial => "" %>
+	  		<%= render partial: 'upcoming_students' %>
 	  	</div>
 	</div>
 <% end %>

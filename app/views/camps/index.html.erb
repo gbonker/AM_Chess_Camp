@@ -10,10 +10,10 @@
   <div class="small-4 columns">
     <% if logged_in? && @inactive_camps.empty? == false %>
       <!-- SIDEBAR CONTENT GOES HERE -->
-      <br /><br /><br /><br /><br /><%= render :partial => "inactive_camps" %>
-      <br /><%= image_tag 'Allegra.JPG', class: "left", width: "400" %>
+      <br /><%= render :partial => "inactive_camps" %>
+      <br /><%= image_tag 'Allen&Daniel.jpg', class: "center", width: "400" %>
     <% else %>
-      <br /><br /><br /><br /><br /><br /><br /><%= image_tag 'Allegra.JPG', class: "left", width: "400" %>
+      <br /><%= image_tag 'Allen&Daniel.jpg', class: "center", width: "400" %>
     <% end %>
   </div>
 

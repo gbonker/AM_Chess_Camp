@@ -6,7 +6,11 @@
 	  <%= @student.proper_name %><br /><br />
 
 	<strong>Parent:&nbsp;&nbsp;</strong>
-	  <%= link_to @student.family.family_name, family_path(@student.family) %><br /><br />
+	  <% if logged_in? && current_user.role == "admin" %>
+	  	<%= link_to @student.family.family_name, family_path(@student.family) %><br /><br />
+	  <% else %>
+	  	<%= @student.family.family_name %><br /><br />
+	  <% end %>
 
 	<strong>Date of Birth:&nbsp;&nbsp;</strong> 
 	  <%= @student.date_of_birth.strftime('%m/%d/%Y') %><br /><br />

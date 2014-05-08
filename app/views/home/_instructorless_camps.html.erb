@@ -1,0 +1,11 @@
+<% unless @instructorless_camps.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Camps with No Instructors</h5>
+    <ul class="side-nav">
+      <% @instructorless_camps.each do |camp| %>
+        <li><%= link_to "#{camp.start_date.strftime('%m/%d/%y')}: #{camp.name} at #{camp.location.name}", camp_path(camp) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
