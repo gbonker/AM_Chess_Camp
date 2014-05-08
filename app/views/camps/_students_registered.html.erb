@@ -12,7 +12,7 @@
 
 		<% @registrations.each do |registration| %>
 		  <tr>
-		    <td><%= link_to registration.student.name, registration_path(registration) %></td>
+		    <td><%= link_to registration.student.name, student_path(registration.student) %></td>
 		    <td align="center"><%= registration.student.rating.zero? ? "Unrated" : registration.student.rating %></td>
 		  </tr>
 		<% end %>

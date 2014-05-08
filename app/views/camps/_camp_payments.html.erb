@@ -1,0 +1,30 @@
+<div class="panel clearfix">
+	<% unless @registrations.empty? %>
+		<h3>Financial Information for this Camp</h3>
+
+		<table class="table">
+			<tr>
+		    	<th width="175">Student Name</th>
+		    	<th width="120">Payment Status</th>
+		    	<th width="120">Balance Due</th>
+		  	</tr>
+
+			<% @registrations.each do |registration| %>
+			  	<tr>
+			    	<td><%= link_to registration.student.name, student_path(registration.student) %></td>
+			    	<td align="center"><%= registration.payment_status %></td>
+			    	<% if registration.payment_status == "deposit" %>
+			    		<td align="center"><%= number_to_currency(registration.camp.cost - 50) %></td>
+			    	<% else %>
+			    		<td align="center">Paid</td>
+			    	<% end %>
+			  	</tr>
+			<% end %>
+		</table>
+		<strong>Total Received: </strong><%= number_to_currency(@total_payments_received) %><br />
+		<strong>Total Balances Due: </strong><%= number_to_currency(@total_balances_due) %><br />
+
+	<% else %>
+		<h5>No Financial Information Available for this Camp.
+	<% end %>
+</div>

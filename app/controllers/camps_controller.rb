@@ -13,6 +13,12 @@ class CampsController < ApplicationController
     @registrations = @camp.registrations.by_student.to_a
     @registration = Registration.new
     @registrations_remaining = @camp.max_students - @registrations.size
+    
+    @total_balances_due = @camp.registrations.select{ |registration| registration.payment_status == "deposit" }.size * (@camp.cost - 50)
+    
+    @total_deposit_payments = @camp.registrations.select{ |registration| registration.payment_status == "deposit" }.size * (50)
+    @total_full_payments = @camp.registrations.select{ |registration| registration.payment_status == "full" }.size * (@camp.cost)
+    @total_payments_received = @total_deposit_payments + @total_full_payments
   end
 
   def new
