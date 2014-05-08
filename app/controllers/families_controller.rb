@@ -9,6 +9,7 @@ class FamiliesController < ApplicationController
 
   def show
   	@students = @family.students.alphabetical.to_a
+    @registrations = @family.students.select{ |student| student.registrations.empty? == false }.map{ |student| student.registrations.all }.flatten.to_a
   end
 
   def new
