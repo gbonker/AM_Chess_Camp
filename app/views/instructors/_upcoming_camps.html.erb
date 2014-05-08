@@ -1,10 +1,10 @@
 <% unless @upcoming_camps.empty? %>
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
-    <% if logged_in? %>
+    <% if logged_in? && @instructor == current_user.instructor%>
       <h5>My Upcoming Camps<h5>
     <% else %>
-      <h5>Upcoming Camps:</h5>
+      <h5>Upcoming Camps with <%= @instructor.first_name %></h5>
     <% end %>
     <ul class="side-nav">
       <% @upcoming_camps.each do |camp| %>

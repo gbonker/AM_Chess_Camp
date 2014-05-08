@@ -12,7 +12,9 @@
   </div>
 
   <div class="small-4 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render partial: 'camps_registered' %>
+    <% if logged_in? && current_user.role == "admin" %>
+      <!-- SIDEBAR CONTENT GOES HERE -->
+      <%= render partial: 'camps_registered' %>
+    <% end %>
   </div>
 </div>
