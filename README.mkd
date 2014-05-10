@@ -1,8 +1,9 @@
-## NOTE TO TAs ##
+## Alex & Mark's Chess Camp Manager ##
 
-My location show pages have dynamic maps.
+This is a project that I made individually for the Spring 2014 semester of Application Design & Development (67-272) class in the Information Systems department at Carnegie Mellon University. The project is a system used to keep track of camps, curriculums, locations, students, families, registrations, and instructors associated with a fictional summer chess camp. It contains CRUD functionality, authentication and authorization, dynamic Google maps, nested forms, and a Model-View-Controller framework. I won a class award for design for this project.
 
-#### 
+The chess camp project was completed in five "phases" throughout the semester. For the phases, we were given a minimal starter code template, which we were expected to add to. The directions for the final phase of the project are found below. The class is taught by Professor Larry Heimann (github.com/profh).
+
 
 ## 67-272: Chess Camp Phase 5 Starter ##
 
